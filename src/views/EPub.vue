@@ -2,7 +2,7 @@
  * @Author: zhimin
  * @Date: 2021-02-23 10:09:32
  * @LastEditors: zhimin
- * @LastEditTime: 2021-02-25 17:18:41
+ * @LastEditTime: 2021-02-25 17:34:30
  * @FilePath: \books\demo\src\views\EPub.vue
 -->
 <template>
@@ -122,6 +122,7 @@ export default {
       this.registerTheme()
       this.setTheme(0)
       this.book.ready.then(() => {
+        this.navigation = this.book.navigation
         return this.book.locations.generate()
       }).then(() => {
         this.locations = this.book.locations
@@ -169,6 +170,14 @@ export default {
       console.log(percentage)
       const location = percentage > 0 ? this.locations.cfiFromPercentage(percentage) : 0
       this.rendition.display(location)
+    },
+    jumpTo (href) {
+      this.rendition.display(href)
+    },
+    hideTitleAndMenu () {
+      this.ifTitleAndMenuShow = false
+      this.$refs.menuBar.hideSettingBar()
+      this.$refs.menuBar.hideContent()
     }
   }
 }

@@ -2,7 +2,7 @@
  * @Author: zhimin
  * @Date: 2021-02-23 15:27:20
  * @LastEditors: zhimin
- * @LastEditTime: 2021-02-25 17:24:39
+ * @LastEditTime: 2021-02-25 17:28:20
  * @FilePath: \books\demo\src\components\MenuBar.vue
 -->
 <template>
@@ -291,6 +291,8 @@ export default {
           }
         }
       }
+    }
+    .setting-progress {
     }
   }
 }
